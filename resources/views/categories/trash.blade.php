@@ -12,6 +12,7 @@
 
 <div class="container pt-5">
   <h2>Categories Table <a class="btn btn-info" href="/category-create">New Category</a> </h2>
+  <h2>Categories Table <a class="btn btn-info" href="/">Home</a> </h2>
    <table class="table">
     <thead>
       <tr>
@@ -32,7 +33,7 @@
              <a href="/category-restore/{{ $category->id }}" class="btn btn-info" >Restore</a>
              {{-- <a href="/category-delete/{{ $category->id }}" class="btn btn-danger" >Delete</a> --}}
              
-             <form action="/category-delete/{{ $category->id }}">
+             <form action="/category-force-delete/{{ $category->id }}">
               @csrf
               @method('delete')
               <button type="submit" class="btn-sm btn-danger">Delete</button>  

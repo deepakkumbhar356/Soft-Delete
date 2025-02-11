@@ -17,3 +17,5 @@ Route::get('/category-edit/{id}',[CategoryController::class,'edit']);
 Route::put('/category-update/{id}',[CategoryController::class,'update']);
 
 Route::get('/category-delete/{id}',[CategoryController::class,'destroy']);
+Route::get('/category-force-delete/{id}',[CategoryController::class,'forceDelete']);
+Route::get('/category-restore/{id}',[CategoryController::class,'restore']);

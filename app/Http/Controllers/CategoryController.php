@@ -51,4 +51,16 @@ class CategoryController extends Controller
         $category->delete();
         return redirect('/');
     }
+
+    public function forceDelete($id){
+        $category =Category::withTrashed()->find($id);
+        $category->forceDelete();
+        return redirect()->back();
+    }
+
+    public function restore($id){
+        $category = Category::withTrashed()->find($id);
+        $category->restore();
+        return redirect('/');
+    }
 }
