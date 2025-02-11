@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Categories Form</title>
+  <title>Soft Delete</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -11,9 +11,7 @@
 <body>
 
 <div class="container pt-5">
-  <h3> Add New Categories <a class="btn btn-info" href="/category-create">New Category</a> </h3>
-  <h3>Restore Categories  <a class="btn btn-info" href="/category-trash">Restore</a> </h3>
-
+  <h2>Categories Table <a class="btn btn-info" href="/category-create">New Category</a> </h2>
    <table class="table">
     <thead>
       <tr>
@@ -31,13 +29,13 @@
         <td>{{ $loop->index+1 }}</td>
         <td>{{ $category->title }}</td>
         <td>
-             <a href="/category-edit/{{ $category->id }}" class="btn btn-info" >Edit</a>
+             <a href="/category-restore/{{ $category->id }}" class="btn btn-info" >Restore</a>
              {{-- <a href="/category-delete/{{ $category->id }}" class="btn btn-danger" >Delete</a> --}}
              
              <form action="/category-delete/{{ $category->id }}">
               @csrf
               @method('delete')
-              <button type="submit" class="btn-sm btn-danger">Trash</button>  
+              <button type="submit" class="btn-sm btn-danger">Delete</button>  
             </form>
         </td>
       </tr>

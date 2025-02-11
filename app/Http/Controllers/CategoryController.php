@@ -12,6 +12,11 @@ class CategoryController extends Controller
         return view('categories.list',['categories'=>$categories]);
     }
 
+    public function trash(){
+        $categories =Category::onlyTrashed()->get();
+        return view('categories.trash',['categories'=>$categories]);
+    }
+
     public function create(){
         return view('categories.new');
     }
